@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Diagnostic Reprise Decathlon</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <main class="app">
+
+    <header class="app-header">
+      <a href="#" class="logo-link">
+        <img src="assets/images/logo-decathlon.png" alt="Logo Decathlon" class="logo" />
+      </a>
+
+      <button class="account-btn" aria-label="Compte utilisateur">
+        👤
+      </button>
+    </header>
+
+    <section class="screen active" id="accueil">
+      <div class="welcome-content">
+        <h1>Bienvenue !</h1>
+        <button class="primary-btn">S’identifier</button>
+      </div>
+    </section>
+
+    <section class="screen" id="connexion">
+      <h2>Seconde Vie/Reprise</h2>
+      <h1>Bienvenue !</h1>
+
+      <form class="form-card">
+        <label>Identifiant</label>
+        <input type="text" value="1025874" />
+
+        <label>Mot de passe</label>
+        <input type="password" value="password" />
+
+        <button type="button" class="primary-btn">Connexion</button>
+      </form>
+    </section>
+
+    <section class="screen" id="dashboard">
+      <h2>Seconde Vie/Reprise</h2>
+      <h1>Diagnostic de reprise</h1>
+      <p class="subtitle">Évaluation objective en moins de 5 minutes</p>
+
+      <h3>Diagnostics du jour</h3>
+
+      <div class="card-list">
+        <article class="diagnostic-card">
+          <div>
+            <strong>Rockrider ST 100</strong>
+            <span>VTT</span>
+          </div>
+          <div class="status success">Repris<br><strong>75 €</strong></div>
+        </article>
+
+        <article class="diagnostic-card">
+          <div>
+            <strong>Elops 120</strong>
+            <span>Vélo ville</span>
+          </div>
+          <div class="status danger">Refusé</div>
+        </article>
+
+        <article class="diagnostic-card">
+          <div>
+            <strong>Triban RC 500</strong>
+            <span>Vélo route</span>
+          </div>
+          <div class="status success">Repris<br><strong>185 €</strong></div>
+        </article>
+      </div>
+
+      <div class="bottom-actions">
+        <button class="primary-btn">Nouveau diagnostic</button>
+        <button class="secondary-btn">Diagnostic existant</button>
+      </div>
+    </section>
+
+    <section class="screen" id="type-velo">
+      <h2>Seconde Vie/Reprise</h2>
+      <h1>Type de vélo</h1>
+      <p class="subtitle">Sélectionnez la catégorie du vélo à reprendre</p>
+
+      <div class="option-list">
+        <button class="option-card selected">
+          <strong>Vélo ville / Trekking</strong>
+          <span>ex. Elops 520</span>
+        </button>
+
+        <button class="option-card">
+          <strong>VTT</strong>
+          <span>ex. Rockrider ST 530</span>
+        </button>
+
+        <button class="option-card">
+          <strong>Vélo route</strong>
+          <span>ex. Triban RC 520</span>
+        </button>
+
+        <button class="option-card">
+          <strong>Vélo électrique</strong>
+          <span>ex. Elops 920 E</span>
+        </button>
+
+        <button class="option-card">
+          <strong>Vélo enfant</strong>
+          <span>ex. B'Twin 500</span>
+        </button>
+      </div>
+
+      <button class="primary-btn fixed-btn">Suivant</button>
+    </section>
+
+    <section class="screen" id="identification">
+      <h2>Seconde Vie/Reprise</h2>
+      <h1>Identification produit</h1>
+
+      <label class="small-label">NOM DU PRODUIT</label>
+      <div class="product-name">Elops 520</div>
+
+      <div class="info-row">
+        <span>Catégorie</span>
+        <strong>Vélo ville / Trekking</strong>
+      </div>
+
+      <h3>Repères de valeur</h3>
+
+      <div class="value-card">
+        <div><span>Prix neuf</span><strong>329 €</strong></div>
+        <div><span>Valeur Seconde Vie de base</span><strong>145 €</strong></div>
+        <div><span>Estimation vue en ligne</span><strong>~150 €</strong></div>
+      </div>
+
+      <p class="success-text">Produit reconnu · Données récupérées</p>
+
+      <button class="primary-btn fixed-btn">Suivant</button>
+    </section>
+
+    <section class="screen" id="diagnostic">
+      <h2>Seconde Vie/Reprise</h2>
+      <h1>Cadre & Fourche</h1>
+
+      <div class="step-header">
+        <span>1 / 4</span>
+      </div>
+
+      <div class="photo-placeholder">
+        Cadre entier de profil — côté transmission visible
+      </div>
+
+      <h3>État du cadre et de la fourche</h3>
+
+      <div class="option-list">
+        <button class="option-card selected">Aucun défaut visible</button>
+        <button class="option-card">Rayures superficielles</button>
+        <button class="option-card">Choc ou corrosion légère <span>-15 €</span></button>
+        <button class="option-card danger-option">Fissure ou déformation</button>
+      </div>
+
+      <button class="primary-btn fixed-btn">Suivant</button>
+    </section>
+
+    <section class="screen" id="recapitulatif">
+      <h2>Seconde Vie/Reprise</h2>
+      <h1>Récapitulatif</h1>
+
+      <div class="score-card">
+        <strong>80<span>/100</span></strong>
+        <p>Bon état</p>
+      </div>
+
+      <h3>Détail par catégorie</h3>
+
+      <div class="score-list">
+        <div><span>Cadre & Structure</span><strong>75 / 100</strong></div>
+        <div><span>Freins & Transmission</span><strong>83 / 100</strong></div>
+        <div><span>Roues & Pneus</span><strong>85 / 100</strong></div>
+        <div><span>Fonctionnel</span><strong>80 / 100</strong></div>
+      </div>
+
+      <h3>Frais de remise en état</h3>
+
+      <div class="fees-card">
+        <div><span>Nettoyage & contrôle technique</span><strong>8 €</strong></div>
+        <div><span>Patins de frein</span><strong>12 €</strong></div>
+        <div><span>Pneu (×1)</span><strong>18 €</strong></div>
+        <div><span>Réglages divers</span><strong>8 €</strong></div>
+        <div class="total"><span>Total frais</span><strong>− 46 €</strong></div>
+      </div>
+
+      <button class="primary-btn fixed-btn">Calculer l’offre de reprise</button>
+    </section>
+
+    <section class="screen" id="offre">
+      <h2>Seconde Vie/Reprise</h2>
+      <h1>Décision & Offre</h1>
+
+      <div class="decision-card">
+        <h3>Reprise validée</h3>
+        <p>Le vélo est éligible au programme Seconde Vie.</p>
+      </div>
+
+      <h3>Pourquoi ce prix ?</h3>
+
+      <div class="price-comparison">
+        <div><span>Estimation en ligne</span><strong>150 €</strong></div>
+        <div><span>Offre magasin</span><strong>102 €</strong></div>
+      </div>
+
+      <p class="explanation">
+        L’écart de 48 € correspond aux frais réels de remise en état et à l’ajustement selon l’état constaté.
+      </p>
+
+      <div class="calculation-card">
+        <div><span>Valeur Seconde Vie de base</span><strong>145 €</strong></div>
+        <div><span>Ajustement selon l’état</span><strong>+3 €</strong></div>
+        <div><span>Frais de remise en état</span><strong>−46 €</strong></div>
+        <div class="total"><span>Offre de reprise</span><strong>102 €</strong></div>
+      </div>
+
+      <button class="primary-btn">Proposer au client</button>
+      <button class="secondary-btn">Annuler le diagnostic</button>
+    </section>
+
+    <section class="screen" id="confirmation">
+      <h2>Seconde Vie/Reprise</h2>
+      <h1>Offre envoyée au client</h1>
+
+      <p class="subtitle">E-mail + notification récapitulative transmis</p>
+
+      <div class="final-card">
+        <p>✓ Bon d’occasion généré</p>
+        <h3>Elops 520</h3>
+        <span>Vélo ville / Trekking · Score 80/100</span>
+        <strong>102 €</strong>
+      </div>
+
+      <h3>Prochaines étapes</h3>
+
+      <div class="timeline">
+        <div>
+          <strong>Paiement</strong>
+          <p>Bon d’achat Decathlon ou virement bancaire sous 48h</p>
+        </div>
+
+        <div>
+          <strong>Atelier reconditionnement</strong>
+          <p>Prise en charge par l’équipe atelier</p>
+        </div>
+
+        <div>
+          <strong>Mise en vente</strong>
+          <p>Étiquette Seconde Vie, rayon ou vente en ligne</p>
+        </div>
+      </div>
+
+      <div class="rgpd-card">
+        <strong>Données personnelles · RGPD</strong>
+        <p>Consentement recueilli · Données conservées 13 mois · Finalité : gestion de reprise uniquement.</p>
+      </div>
+
+      <button class="primary-btn fixed-btn">Terminer</button>
+    </section>
+
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
