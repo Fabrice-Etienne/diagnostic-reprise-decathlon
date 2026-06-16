@@ -1,5 +1,6 @@
 const screens = document.querySelectorAll(".screen");
 const navigationButtons = document.querySelectorAll("[data-next]");
+const selectableCards = document.querySelectorAll(".choice-card, .answer-card");
 
 function showScreen(screenId) {
   screens.forEach((screen) => {
@@ -20,7 +21,19 @@ function showScreen(screenId) {
 navigationButtons.forEach((button) => {
   button.addEventListener("click", (event) => {
     event.preventDefault();
-    const nextScreenId = button.dataset.next;
-    showScreen(nextScreenId);
+    showScreen(button.dataset.next);
+  });
+});
+
+selectableCards.forEach((card) => {
+  card.addEventListener("click", () => {
+    const parent = card.parentElement;
+    const cardsInSameGroup = parent.querySelectorAll(".choice-card, .answer-card");
+
+    cardsInSameGroup.forEach((item) => {
+      item.classList.remove("active");
+    });
+
+    card.classList.add("active");
   });
 });
