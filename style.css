@@ -26,80 +26,121 @@ body {
 
 .app-header {
   background: #3643c5;
-  height: 110px;
-  padding: 26px 24px;
+  height: 102px;
+  padding: 24px;
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
 }
 
+.logo-link {
+  display: inline-flex;
+  align-items: center;
+}
+
 .logo {
-  width: 150px;
+  width: 160px;
   height: auto;
+  filter: brightness(0) invert(1);
 }
 
 .account-btn {
-  width: 34px;
-  height: 34px;
+  width: 38px;
+  height: 38px;
   border: none;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.15);
-  color: white;
-  font-size: 16px;
+  background: rgba(255, 255, 255, 0.16);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.account-btn svg {
+  width: 23px;
+  height: 23px;
+  fill: #ffffff;
 }
 
 .screen {
   display: none;
-  min-height: calc(100dvh - 110px);
-  padding: 28px 24px 24px;
+  min-height: calc(100dvh - 102px);
+  padding: 22px 24px 100px;
 }
 
 .screen.active {
   display: block;
 }
 
-#accueil {
-  padding-top: 0;
+h1 {
+  font-size: 24px;
+  line-height: 1.15;
+  margin-bottom: 34px;
+  font-weight: 800;
+  color: #101828;
+}
+
+h2 {
+  font-size: 12px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1.6px;
+  color: #3643c5;
+  margin-bottom: 12px;
+}
+
+h2 span {
+  float: right;
+}
+
+h3 {
+  font-size: 16px;
+  margin: 22px 0 12px;
+  color: #101828;
+}
+
+.subtitle {
+  font-size: 14px;
+  color: #667085;
+  line-height: 1.45;
+  margin-top: -24px;
+  margin-bottom: 20px;
 }
 
 .welcome-content {
-  padding-top: 28px;
+  padding-top: 20px;
 }
 
-h1 {
-  font-size: 22px;
-  font-weight: 800;
-  margin-bottom: 36px;
-}
-
-.primary-btn {
-  width: 100%;
-  min-height: 42px;
-  border: 1px solid #0ba676;
-  border-radius: 12px;
-  background: #ffffff;
-  color: #111827;
-  font-size: 15px;
-  font-weight: 800;
-  cursor: pointer;
-}
-
+.primary-btn,
 .secondary-btn {
   width: 100%;
   min-height: 42px;
-  border: 1px solid #3643c5;
   border-radius: 12px;
-  background: #ffffff;
-  color: #3643c5;
   font-size: 15px;
   font-weight: 800;
   cursor: pointer;
+  margin-top: 14px;
 }
 
-@media (min-width: 520px) {
-  .app {
-    box-shadow: 0 8px 35px rgba(16, 24, 40, 0.12);
-  }
+.primary-btn {
+  border: 1px solid #0ba676;
+  background: #ffffff;
+  color: #111827;
+}
+
+.secondary-btn {
+  border: 1px solid #3643c5;
+  background: #ffffff;
+  color: #3643c5;
+}
+
+.fixed-btn {
+  position: fixed;
+  left: 50%;
+  bottom: 24px;
+  transform: translateX(-50%);
+  width: calc(100% - 48px);
+  max-width: 382px;
 }
 
 .form-card {
@@ -109,17 +150,18 @@ h1 {
 label,
 .small-label {
   display: block;
-  font-size: 12px;
-  color: #667085;
+  font-size: 11px;
+  color: #3643c5;
   text-transform: uppercase;
-  letter-spacing: 3px;
+  letter-spacing: 4px;
   margin: 18px 0 8px;
+  font-weight: 800;
 }
 
 input {
   width: 100%;
   height: 54px;
-  border: 1px solid #d0d5dd;
+  border: 1px solid #e4e7ec;
   border-radius: 14px;
   padding: 0 16px;
   font-size: 16px;
@@ -142,16 +184,19 @@ input {
 .decision-card,
 .calculation-card,
 .final-card,
-.rgpd-card {
+.rgpd-card,
+.product-card,
+.price-comparison {
   width: 100%;
   border: 1px solid #e4e7ec;
-  border-radius: 20px;
+  border-radius: 14px;
   background: #ffffff;
-  padding: 16px;
+  padding: 14px 16px;
   box-shadow: 0 8px 20px rgba(16, 24, 40, 0.04);
 }
 
-.diagnostic-card {
+.diagnostic-card,
+.product-card {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -163,17 +208,18 @@ input {
 .score-list span,
 .fees-card span,
 .calculation-card span,
-.final-card span {
+.final-card span,
+.product-card span {
   display: block;
   color: #667085;
-  font-size: 14px;
+  font-size: 13px;
   margin-top: 4px;
 }
 
 .status {
   text-align: right;
   font-size: 13px;
-  font-weight: 700;
+  font-weight: 800;
 }
 
 .success {
@@ -195,7 +241,7 @@ input {
 }
 
 .option-card.selected {
-  border: 2px solid #0046ff;
+  border: 2px solid #3643c5;
   background: #eef3ff;
 }
 
@@ -203,13 +249,26 @@ input {
   color: #f04438;
 }
 
-.product-name {
-  font-size: 24px;
-  font-weight: 800;
-  margin-bottom: 22px;
+.bike-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: #12b76a;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 14px;
 }
 
-.info-row,
+.value-card,
+.fees-card,
+.calculation-card {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
 .value-card div,
 .score-list div,
 .fees-card div,
@@ -221,41 +280,30 @@ input {
   gap: 16px;
 }
 
-.value-card,
-.fees-card,
-.calculation-card {
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-}
-
 .success-text {
-  color: #12b76a;
+  background: #ecfdf3;
+  color: #027a48;
   margin-top: 16px;
+  padding: 12px;
+  border-radius: 12px;
   font-weight: 700;
   font-size: 14px;
 }
 
-.step-header {
-  display: flex;
-  justify-content: flex-end;
-  color: #667085;
-  margin-bottom: 14px;
-  font-weight: 700;
-}
-
 .photo-placeholder {
-  height: 150px;
-  border-radius: 22px;
-  background: #eaf0ff;
-  color: #0046ff;
+  min-height: 42px;
+  border-radius: 12px;
+  border: 1.5px dashed #3643c5;
+  background: #ffffff;
+  color: #3643c5;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: 18px;
+  padding: 12px;
   font-weight: 700;
-  margin-bottom: 24px;
+  font-size: 13px;
+  margin-bottom: 22px;
 }
 
 .score-card {
@@ -264,25 +312,34 @@ input {
 }
 
 .score-card strong {
-  font-size: 48px;
-  color: #0046ff;
+  font-size: 42px;
+  color: #101828;
 }
 
 .score-card strong span {
-  font-size: 22px;
+  font-size: 18px;
   color: #667085;
 }
 
 .score-card p {
-  font-size: 18px;
-  font-weight: 700;
-  margin-top: 6px;
+  display: inline-block;
+  background: #dcfae6;
+  color: #027a48;
+  padding: 5px 14px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 800;
+  margin-top: 8px;
 }
 
 .total {
   border-top: 1px solid #e4e7ec;
   padding-top: 12px;
   font-weight: 800;
+}
+
+.total strong {
+  color: #f04438;
 }
 
 .decision-card {
@@ -296,20 +353,18 @@ input {
 }
 
 .price-comparison {
-  background: #ffffff;
-  border-radius: 20px;
-  padding: 16px;
-  border: 1px solid #e4e7ec;
   margin-bottom: 14px;
 }
 
 .price-comparison div {
   width: 50%;
+  text-align: center;
 }
 
 .price-comparison strong {
+  display: block;
   font-size: 26px;
-  color: #0046ff;
+  color: #3643c5;
 }
 
 .explanation {
@@ -326,7 +381,7 @@ input {
 .final-card strong {
   display: block;
   font-size: 38px;
-  color: #0046ff;
+  color: #3643c5;
   margin-top: 18px;
 }
 
@@ -339,7 +394,7 @@ input {
 .timeline div {
   background: #ffffff;
   border: 1px solid #e4e7ec;
-  border-radius: 18px;
+  border-radius: 14px;
   padding: 14px;
 }
 
@@ -357,15 +412,7 @@ input {
 }
 
 @media (min-width: 520px) {
-  body {
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-  }
-
   .app {
-    max-width: 430px;
-    min-height: 100vh;
-    box-shadow: 0 0 30px rgba(16, 24, 40, 0.12);
+    box-shadow: 0 8px 35px rgba(16, 24, 40, 0.12);
   }
 }

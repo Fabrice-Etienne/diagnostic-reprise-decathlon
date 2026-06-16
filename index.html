@@ -7,23 +7,24 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-
   <main class="app">
 
     <header class="app-header">
-      <a href="#" class="logo-link">
+      <a href="#" class="logo-link" data-next="accueil" aria-label="Retour à l'accueil">
         <img src="assets/images/logo-decathlon.png" alt="Logo Decathlon" class="logo" />
       </a>
 
       <button class="account-btn" aria-label="Compte utilisateur">
-        👤
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M12 12c2.2 0 4-1.8 4-4s-1.8-4-4-4-4 1.8-4 4 1.8 4 4 4Zm0 2c-2.7 0-8 1.4-8 4v2h16v-2c0-2.6-5.3-4-8-4Z"/>
+        </svg>
       </button>
     </header>
 
     <section class="screen active" id="accueil">
       <div class="welcome-content">
         <h1>Bienvenue !</h1>
-        <button class="primary-btn">S’identifier</button>
+        <button class="primary-btn" data-next="connexion">S’identifier</button>
       </div>
     </section>
 
@@ -38,7 +39,7 @@
         <label>Mot de passe</label>
         <input type="password" value="password" />
 
-        <button type="button" class="primary-btn">Connexion</button>
+        <button type="button" class="primary-btn" data-next="dashboard">Connexion</button>
       </form>
     </section>
 
@@ -51,32 +52,23 @@
 
       <div class="card-list">
         <article class="diagnostic-card">
-          <div>
-            <strong>Rockrider ST 100</strong>
-            <span>VTT</span>
-          </div>
+          <div><strong>Rockrider ST 100</strong><span>VTT</span></div>
           <div class="status success">Repris<br><strong>75 €</strong></div>
         </article>
 
         <article class="diagnostic-card">
-          <div>
-            <strong>Elops 120</strong>
-            <span>Vélo ville</span>
-          </div>
+          <div><strong>Elops 120</strong><span>Vélo ville</span></div>
           <div class="status danger">Refusé</div>
         </article>
 
         <article class="diagnostic-card">
-          <div>
-            <strong>Triban RC 500</strong>
-            <span>Vélo route</span>
-          </div>
+          <div><strong>Triban RC 500</strong><span>Vélo route</span></div>
           <div class="status success">Repris<br><strong>185 €</strong></div>
         </article>
       </div>
 
       <div class="bottom-actions">
-        <button class="primary-btn">Nouveau diagnostic</button>
+        <button class="primary-btn" data-next="type-velo">Nouveau diagnostic</button>
         <button class="secondary-btn">Diagnostic existant</button>
       </div>
     </section>
@@ -87,45 +79,27 @@
       <p class="subtitle">Sélectionnez la catégorie du vélo à reprendre</p>
 
       <div class="option-list">
-        <button class="option-card selected">
-          <strong>Vélo ville / Trekking</strong>
-          <span>ex. Elops 520</span>
-        </button>
-
-        <button class="option-card">
-          <strong>VTT</strong>
-          <span>ex. Rockrider ST 530</span>
-        </button>
-
-        <button class="option-card">
-          <strong>Vélo route</strong>
-          <span>ex. Triban RC 520</span>
-        </button>
-
-        <button class="option-card">
-          <strong>Vélo électrique</strong>
-          <span>ex. Elops 920 E</span>
-        </button>
-
-        <button class="option-card">
-          <strong>Vélo enfant</strong>
-          <span>ex. B'Twin 500</span>
-        </button>
+        <button class="option-card selected"><strong>Vélo ville / Trekking</strong><span>ex. Elops 520</span></button>
+        <button class="option-card"><strong>VTT</strong><span>ex. Rockrider ST 530</span></button>
+        <button class="option-card"><strong>Vélo route</strong><span>ex. Triban RC 520</span></button>
+        <button class="option-card"><strong>Vélo électrique</strong><span>ex. Elops 920 E</span></button>
+        <button class="option-card"><strong>Vélo enfant</strong><span>ex. B'Twin 500</span></button>
       </div>
 
-      <button class="primary-btn fixed-btn">Suivant</button>
+      <button class="primary-btn fixed-btn" data-next="identification">Suivant</button>
     </section>
 
     <section class="screen" id="identification">
       <h2>Seconde Vie/Reprise</h2>
       <h1>Identification produit</h1>
 
-      <label class="small-label">NOM DU PRODUIT</label>
-      <div class="product-name">Elops 520</div>
-
-      <div class="info-row">
-        <span>Catégorie</span>
-        <strong>Vélo ville / Trekking</strong>
+      <label class="small-label">Nom du produit</label>
+      <div class="product-card">
+        <div class="bike-icon">🚲</div>
+        <div>
+          <strong>Elops 520</strong>
+          <span>Catégorie · Vélo ville / Trekking</span>
+        </div>
       </div>
 
       <h3>Repères de valeur</h3>
@@ -138,31 +112,86 @@
 
       <p class="success-text">Produit reconnu · Données récupérées</p>
 
-      <button class="primary-btn fixed-btn">Suivant</button>
+      <button class="primary-btn fixed-btn" data-next="diagnostic-1">Suivant</button>
     </section>
 
-    <section class="screen" id="diagnostic">
-      <h2>Seconde Vie/Reprise</h2>
+    <section class="screen" id="diagnostic-1">
+      <h2>Seconde Vie/Reprise <span>1 / 4</span></h2>
       <h1>Cadre & Fourche</h1>
 
-      <div class="step-header">
-        <span>1 / 4</span>
-      </div>
-
-      <div class="photo-placeholder">
-        Cadre entier de profil — côté transmission visible
-      </div>
+      <div class="photo-placeholder">📷 Cadre entier de profil — côté transmission visible</div>
 
       <h3>État du cadre et de la fourche</h3>
 
       <div class="option-list">
-        <button class="option-card selected">Aucun défaut visible</button>
-        <button class="option-card">Rayures superficielles</button>
+        <button class="option-card">Aucun défaut visible</button>
+        <button class="option-card selected">Rayures superficielles</button>
         <button class="option-card">Choc ou corrosion légère <span>-15 €</span></button>
         <button class="option-card danger-option">Fissure ou déformation</button>
       </div>
 
-      <button class="primary-btn fixed-btn">Suivant</button>
+      <button class="primary-btn fixed-btn" data-next="diagnostic-2">Suivant</button>
+    </section>
+
+    <section class="screen" id="diagnostic-2">
+      <h2>Seconde Vie/Reprise <span>2 / 4</span></h2>
+      <h1>Freins & Transmission</h1>
+
+      <div class="photo-placeholder">📷 Patins de frein + plateau dérailleur</div>
+
+      <h3>Freinage</h3>
+      <div class="option-list">
+        <button class="option-card">Efficace · Aucun remplacement</button>
+        <button class="option-card selected">Patins usés à remplacer <span>-12 €</span></button>
+        <button class="option-card">Freinage défaillant <span>-10 €</span></button>
+      </div>
+
+      <h3>Transmission</h3>
+      <div class="option-list">
+        <button class="option-card selected">Fluide · Chaîne et dérailleur OK</button>
+        <button class="option-card">Dérailleur à régler <span>-15 €</span></button>
+        <button class="option-card">Chaîne + cassette usées <span>-25 €</span></button>
+      </div>
+
+      <button class="primary-btn fixed-btn" data-next="diagnostic-3">Suivant</button>
+    </section>
+
+    <section class="screen" id="diagnostic-3">
+      <h2>Seconde Vie/Reprise <span>3 / 4</span></h2>
+      <h1>Roues & Pneus</h1>
+
+      <div class="photo-placeholder">📷 Bande de roulement des deux pneus</div>
+
+      <h3>État des pneus</h3>
+      <div class="option-list">
+        <button class="option-card">Bon état · Usure normale</button>
+        <button class="option-card selected">Un pneu à changer <span>-18 €</span></button>
+        <button class="option-card">Les deux pneus à changer <span>-35 €</span></button>
+      </div>
+
+      <h3>Voile des roues</h3>
+      <div class="option-list">
+        <button class="option-card selected">Droites · Pas de voile</button>
+        <button class="option-card">Léger voile à corriger <span>-10 €</span></button>
+      </div>
+
+      <button class="primary-btn fixed-btn" data-next="diagnostic-4">Suivant</button>
+    </section>
+
+    <section class="screen" id="diagnostic-4">
+      <h2>Seconde Vie/Reprise <span>4 / 4</span></h2>
+      <h1>Test fonctionnel</h1>
+
+      <div class="photo-placeholder">📷 Direction, jeux de pédalier, serrages</div>
+
+      <h3>Test fonctionnel général</h3>
+      <div class="option-list">
+        <button class="option-card">Rien à signaler · Tout opérationnel</button>
+        <button class="option-card selected">Réglages mineurs nécessaires <span>-8 €</span></button>
+        <button class="option-card">Plusieurs points à revoir <span>-18 €</span></button>
+      </div>
+
+      <button class="primary-btn fixed-btn" data-next="recapitulatif">Voir le récapitulatif</button>
     </section>
 
     <section class="screen" id="recapitulatif">
@@ -175,7 +204,6 @@
       </div>
 
       <h3>Détail par catégorie</h3>
-
       <div class="score-list">
         <div><span>Cadre & Structure</span><strong>75 / 100</strong></div>
         <div><span>Freins & Transmission</span><strong>83 / 100</strong></div>
@@ -184,16 +212,15 @@
       </div>
 
       <h3>Frais de remise en état</h3>
-
       <div class="fees-card">
         <div><span>Nettoyage & contrôle technique</span><strong>8 €</strong></div>
         <div><span>Patins de frein</span><strong>12 €</strong></div>
         <div><span>Pneu (×1)</span><strong>18 €</strong></div>
         <div><span>Réglages divers</span><strong>8 €</strong></div>
-        <div class="total"><span>Total frais</span><strong>− 46 €</strong></div>
+        <div class="total"><span>Total frais</span><strong>−46 €</strong></div>
       </div>
 
-      <button class="primary-btn fixed-btn">Calculer l’offre de reprise</button>
+      <button class="primary-btn fixed-btn" data-next="offre">Calculer l’offre de reprise</button>
     </section>
 
     <section class="screen" id="offre">
@@ -223,14 +250,13 @@
         <div class="total"><span>Offre de reprise</span><strong>102 €</strong></div>
       </div>
 
-      <button class="primary-btn">Proposer au client</button>
-      <button class="secondary-btn">Annuler le diagnostic</button>
+      <button class="primary-btn" data-next="confirmation">Proposer au client</button>
+      <button class="secondary-btn" data-next="dashboard">Annuler le diagnostic</button>
     </section>
 
     <section class="screen" id="confirmation">
       <h2>Seconde Vie/Reprise</h2>
       <h1>Offre envoyée au client</h1>
-
       <p class="subtitle">E-mail + notification récapitulative transmis</p>
 
       <div class="final-card">
@@ -243,20 +269,9 @@
       <h3>Prochaines étapes</h3>
 
       <div class="timeline">
-        <div>
-          <strong>Paiement</strong>
-          <p>Bon d’achat Decathlon ou virement bancaire sous 48h</p>
-        </div>
-
-        <div>
-          <strong>Atelier reconditionnement</strong>
-          <p>Prise en charge par l’équipe atelier</p>
-        </div>
-
-        <div>
-          <strong>Mise en vente</strong>
-          <p>Étiquette Seconde Vie, rayon ou vente en ligne</p>
-        </div>
+        <div><strong>Paiement</strong><p>Bon d’achat Decathlon ou virement bancaire sous 48h</p></div>
+        <div><strong>Atelier reconditionnement</strong><p>Prise en charge par l’équipe atelier pour remise en état</p></div>
+        <div><strong>Mise en vente</strong><p>Étiquette Seconde Vie, rayon ou vente en ligne</p></div>
       </div>
 
       <div class="rgpd-card">
@@ -264,7 +279,7 @@
         <p>Consentement recueilli · Données conservées 13 mois · Finalité : gestion de reprise uniquement.</p>
       </div>
 
-      <button class="primary-btn fixed-btn">Terminer</button>
+      <button class="primary-btn fixed-btn" data-next="accueil">Terminer</button>
     </section>
 
   </main>
