@@ -1,6 +1,7 @@
 const screens = document.querySelectorAll(".screen");
 const navigationButtons = document.querySelectorAll("[data-next]");
 const selectableCards = document.querySelectorAll(".choice-card, .answer-card");
+const loginButton = document.getElementById("login-btn");
 
 const diagnostic = {
   cadre: { score: 85, frais: 0, label: "Rayures superficielles" },
@@ -236,5 +237,38 @@ selectableCards.forEach((card) => {
     }
   });
 });
+
+if (loginButton) {
+  loginButton.addEventListener("click", async () => {
+    const identifiant = document.getElementById("identifiant").value;
+    const password = document.getElementById("password").value;
+
+    try {
+      const response = await fetch("http://localhost:3000/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          identifiant,
+          password
+        })
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        alert(data.message);
+        return;
+      }
+
+      localStorage.setItem("vendeur", JSON.stringify(data.user));
+      showScreen("dashboard");
+    } catch (error) {
+      alert("Impossible de contacter le serveur.");
+      console.error(error);
+    }
+  });
+}
 
 updateResults();

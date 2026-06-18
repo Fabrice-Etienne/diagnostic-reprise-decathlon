@@ -1,0 +1,9 @@
+[
+  {
+    "id": 1,
+    "identifiant": "1025874",
+    "nom": "Fabrice",
+    "role": "vendeur",
+    "passwordHash": "$2b$10$wRMYnqjHDL2ZMg9IJJWkOeR0uT4IBxD2tU8o2Y9Q7.dYm3n.CTv.C"
+  }
+]
