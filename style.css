@@ -15,11 +15,13 @@
   --danger: #d64545;
 }
 
+@import url("https://fonts.googleapis.com/css2?family=Archivo:wght@700;800;900&family=Inter:wght@400;500;600;700;800;900&display=swap");
+
 html,
 body {
   width: 100%;
   height: 100%;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Inter", Arial, sans-serif;
   background: #eef0f5;
   color: var(--dark);
   overflow: hidden;
@@ -87,6 +89,7 @@ body {
   font-size: 22px;
   font-weight: 900;
   line-height: 1.1;
+  font-family: "Archivo", Arial, sans-serif;
 }
 
 .header-subtitle {
@@ -114,6 +117,10 @@ body {
   transition: transform 0.2s ease, background 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
 }
 
+.diagnosticBtn {
+  color: var(--blue) !important;
+}
+ 
 .btn-primary {
   border: 1px solid var(--green);
   color: var(--dark);
@@ -309,6 +316,10 @@ body {
   color: var(--green);
 }
 
+.success b{
+  color: var(--dark);
+}
+
 .danger,
 .critical {
   color: var(--danger);
@@ -342,7 +353,6 @@ body {
 .choice-card strong,
 .answer-card {
   font-size: 14px;
-  font-weight: 800;
 }
 
 .choice-card small {
