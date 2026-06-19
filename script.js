@@ -207,9 +207,29 @@ function updateResults() {
   }
 }
 
+function hasSelectedAnswer(screenId) {
+  const screen = document.getElementById(screenId);
+  const answerCards = screen.querySelectorAll(".answer-card");
+
+  if (answerCards.length === 0) {
+    return true;
+  }
+
+  return screen.querySelector(".answer-card.active") !== null;
+}
+
 navigationButtons.forEach((button) => {
   button.addEventListener("click", (event) => {
     event.preventDefault();
+
+    const currentScreen = document.querySelector(".screen.active");
+    const currentScreenId = currentScreen.id;
+
+    if (!hasSelectedAnswer(currentScreenId)) {
+      alert("Veuillez sélectionner une réponse avant de continuer.");
+      return;
+    }
+
     showScreen(button.dataset.next);
   });
 });
