@@ -182,10 +182,10 @@
       <div class="content with-bottom">
         <div class="photo-box">▣ Cadre entier de profil — côté transmission visible</div>
         <h2 class="section-title">État du cadre et de la fourche</h2>
-        <button class="answer-card">Aucun défaut visible</button>
+        <button class="answer-card" data-group="cadre" data-score="100" data-fee="0">Aucun défaut visible</button>
         <button class="answer-card">Rayures superficielles</button>
-        <button class="answer-card">Choc ou corrosion légère <span>-15 €</span></button>
-        <button class="answer-card critical">Fissure ou déformation <span>⊗</span></button>
+        <button class="answer-card" data-group="cadre" data-score="60" data-fee="15">Choc ou corrosion légère <span>-15 €</span></button>
+        <button class="answer-card critical" data-group="cadre" data-score="0" data-fee="0">Fissure ou déformation <span>⊗</span></button>
         <button class="btn btn-primary btn-bottom" data-next="diagnostic-2">Suivant</button>
       </div>
     </section>
@@ -202,14 +202,14 @@
       <div class="content with-bottom">
         <div class="photo-box">▣ Patins de frein + plateau dérailleur</div>
         <h2 class="section-title">Freinage</h2>
-        <button class="answer-card">Efficace · Aucun remplacement</button>
+        <button class="answer-card" data-group="freins" data-score="100" data-fee="0">Efficace · Aucun remplacement</button>
         <button class="answer-card">Patins usés à remplacer <span>-12 €</span></button>
-        <button class="answer-card">Freinage défaillant <span>-10 €</span></button>
+        <button class="answer-card" data-group="freins" data-score="40" data-fee="10">Freinage défaillant <span>-10 €</span></button>
 
         <h2 class="section-title">Transmission</h2>
-        <button class="answer-card">Fluide · Chaîne et dérailleur OK</button>
-        <button class="answer-card">Dérailleur à régler <span>-15 €</span></button>
-        <button class="answer-card">Chaîne + cassette usées <span>-25 €</span></button>
+        <button class="answer-card" data-group="transmission" data-score="100" data-fee="0">Fluide · Chaîne et dérailleur OK</button>
+        <button class="answer-card" data-group="transmission" data-score="75" data-fee="15">Dérailleur à régler <span>-15 €</span></button>
+        <button class="answer-card" data-group="transmission" data-score="50" data-fee="25">Chaîne + cassette usées <span>-25 €</span></button>
 
         <button class="btn btn-primary btn-bottom" data-next="diagnostic-3">Suivant</button>
       </div>
@@ -227,13 +227,13 @@
       <div class="content with-bottom">
         <div class="photo-box">▣ Bande de roulement des deux pneus</div>
         <h2 class="section-title">État des pneus</h2>
-        <button class="answer-card">Bon état · Usure normale</button>
-        <button class="answer-card">Un pneu à changer <span>-18 €</span></button>
-        <button class="answer-card">Les deux pneus à changer <span>-35 €</span></button>
+        <button class="answer-card" data-group="pneus" data-score="100" data-fee="0">Bon état · Usure normale</button>
+        <button class="answer-card" data-group="pneus" data-score="80" data-fee="18">Un pneu à changer <span>-18 €</span></button>
+        <button class="answer-card" data-group="pneus" data-score="50" data-fee="35">Les deux pneus à changer <span>-35 €</span></button>
 
         <h2 class="section-title">Voile des roues</h2>
-        <button class="answer-card">Droites · Pas de voile</button>
-        <button class="answer-card">Léger voile à corriger <span>-10 €</span></button>
+        <button class="answer-card" data-group="roues" data-score="100" data-fee="0">Droites · Pas de voile</button>
+        <button class="answer-card" data-group="roues" data-score="75" data-fee="10">Léger voile à corriger <span>-10 €</span></button>
 
         <button class="btn btn-primary btn-bottom" data-next="diagnostic-4">Suivant</button>
       </div>
@@ -251,9 +251,9 @@
       <div class="content with-bottom">
         <div class="photo-box">▣ Direction, jeux de pédalier, serrages</div>
         <h2 class="section-title">Test fonctionnel général</h2>
-        <button class="answer-card">Rien à signaler · Tout opérationnel</button>
-        <button class="answer-card">Réglages mineurs nécessaires <span>-8 €</span></button>
-        <button class="answer-card">Plusieurs points à revoir <span>-18 €</span></button>
+        <button class="answer-card" data-group="fonctionnel" data-score="100" data-fee="0">Rien à signaler · Tout opérationnel</button>
+        <button class="answer-card" data-group="fonctionnel" data-score="80" data-fee="8">Réglages mineurs nécessaires <span>-8 €</span></button>
+        <button class="answer-card" data-group="fonctionnel" data-score="50" data-fee="18">Plusieurs points à revoir <span>-18 €</span></button>
 
         <button class="btn btn-primary btn-bottom" data-next="recapitulatif">Voir le récapitulatif</button>
       </div>

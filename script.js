@@ -225,16 +225,19 @@ selectableCards.forEach((card) => {
 
     card.classList.add("active");
 
-    const selectedText = cleanText(card.textContent);
-    const rule = scoringRules[selectedText];
+  const group = card.dataset.group;
+  const score = Number(card.dataset.score);
+  const frais = Number(card.dataset.fee);
 
-    if (rule) {
-      diagnostic[rule.group] = {
-        score: rule.score,
-        frais: rule.frais,
-        label: selectedText
-      };
-    }
+  if (group) {
+    diagnostic[group] = {
+      score: score,
+      frais: frais,
+      label: card.textContent.trim()
+    };
+
+    updateResults();
+  }
   });
 });
 
