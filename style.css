@@ -648,3 +648,66 @@ body {
   background: #f9f9fc;
   margin-top: 14px;
 }
+
+.score-card.score-good p {
+  background: #e8f8ec;
+  color: #00a676;
+}
+
+.score-card.score-warning p {
+  background: #fff4d6;
+  color: #b7791f;
+}
+
+.score-card.score-danger p {
+  background: #ffe4e6;
+  color: #d64545;
+}
+
+.score-card.score-critical p {
+  background: #fee2e2;
+  color: #b91c1c;
+}
+
+.score-card.score-good .score-circle {
+  color: #111827;
+}
+
+.score-card.score-warning .score-circle {
+  color: #b7791f;
+}
+
+.score-card.score-danger .score-circle {
+  color: #d64545;
+}
+
+.score-card.score-critical .score-circle {
+  color: #b91c1c;
+}
+
+.decision-card.decision-success {
+  background: #e8f8ec;
+  border-color: #bdeed8;
+}
+
+.decision-card.decision-success > span {
+  background: #00a676;
+}
+
+.decision-card.decision-warning {
+  background: #fff4d6;
+  border-color: #f4c96b;
+}
+
+.decision-card.decision-warning > span {
+  background: #b7791f;
+}
+
+.decision-card.decision-danger {
+  background: #fee2e2;
+  border-color: #fca5a5;
+}
+
+.decision-card.decision-danger > span {
+  background: #dc2626;
+}

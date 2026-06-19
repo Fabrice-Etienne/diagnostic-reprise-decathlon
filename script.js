@@ -105,7 +105,11 @@ function calculateDiagnostic() {
   let decision = "Reprise validée";
   let message = "Le vélo est éligible au programme Seconde Vie.";
 
-  if (scoreFinal < 60) {
+  if (diagnostic.cadre.score === 0) {
+  decision = "Reprise refusée";
+  message = "Le cadre présente un défaut structurel critique.";
+  }
+  else if (scoreFinal < 60) {
     decision = "Reprise refusée";
     message = "Le vélo nécessite trop de réparations pour être repris.";
   } else if (scoreFinal < 80) {
@@ -138,6 +142,27 @@ function updateText(selector, value) {
 
 function updateResults() {
   const result = calculateDiagnostic();
+  const scoreCard = document.querySelector(".score-card");
+  const scoreLabel = document.querySelector(".score-card p");
+
+  if (scoreCard && scoreLabel) {
+    scoreCard.classList.remove("score-good", "score-warning", "score-danger", "score-critical");
+
+    if (result.scoreFinal >= 80) {
+      scoreCard.classList.add("score-good");
+      scoreLabel.textContent = "Bon état";
+    } else if (result.scoreFinal >= 60) {
+      scoreCard.classList.add("score-warning");
+      scoreLabel.textContent = "État correct";
+    } else if (result.scoreFinal >= 40) {
+      scoreCard.classList.add("score-danger");
+      scoreLabel.textContent = "État dégradé";
+    } else {
+      scoreCard.classList.add("score-critical");
+      scoreLabel.textContent = "État critique";
+    }
+  }
+
 
   updateText(".score-circle", `${result.scoreFinal} / 100`);
 
@@ -167,6 +192,19 @@ function updateResults() {
 
   const decisionTitle = document.querySelector(".decision-card strong");
   const decisionMessage = document.querySelector(".decision-card p");
+  const decisionCard = document.querySelector(".decision-card");
+
+  if (decisionCard) {
+    decisionCard.classList.remove("decision-success", "decision-warning", "decision-danger");
+
+    if (result.scoreFinal >= 80) {
+      decisionCard.classList.add("decision-success");
+    } else if (result.scoreFinal >= 60) {
+      decisionCard.classList.add("decision-warning");
+    } else {
+      decisionCard.classList.add("decision-danger");
+    }
+  }
 
   if (decisionTitle && decisionMessage) {
     decisionTitle.textContent = result.decision;
@@ -215,7 +253,26 @@ function hasSelectedAnswer(screenId) {
     return true;
   }
 
-  return screen.querySelector(".answer-card.active") !== null;
+  const requiredGroups = new Set();
+
+  answerCards.forEach((card) => {
+    if (card.dataset.group) {
+      requiredGroups.add(card.dataset.group);
+    }
+  });
+
+  for (const group of requiredGroups) {
+    const selected = screen.querySelector(
+      `.answer-card.active[data-group="${group}"]`
+    );
+
+    if (!selected) {
+      alert(`Veuillez sélectionner une réponse pour : ${group}`);
+      return false;
+    }
+  }
+
+  return true;
 }
 
 navigationButtons.forEach((button) => {
@@ -223,10 +280,8 @@ navigationButtons.forEach((button) => {
     event.preventDefault();
 
     const currentScreen = document.querySelector(".screen.active");
-    const currentScreenId = currentScreen.id;
 
-    if (!hasSelectedAnswer(currentScreenId)) {
-      alert("Veuillez sélectionner une réponse avant de continuer.");
+    if (!hasSelectedAnswer(currentScreen.id)) {
       return;
     }
 
@@ -236,8 +291,15 @@ navigationButtons.forEach((button) => {
 
 selectableCards.forEach((card) => {
   card.addEventListener("click", () => {
-    const parent = card.parentElement;
-    const cardsInSameGroup = parent.querySelectorAll(".choice-card, .answer-card");
+    const group = card.dataset.group;
+
+    if (!group) {
+      return;
+    }
+
+    const cardsInSameGroup = document.querySelectorAll(
+      `.answer-card[data-group="${group}"]`
+    );
 
     cardsInSameGroup.forEach((item) => {
       item.classList.remove("active");
@@ -245,19 +307,13 @@ selectableCards.forEach((card) => {
 
     card.classList.add("active");
 
-  const group = card.dataset.group;
-  const score = Number(card.dataset.score);
-  const frais = Number(card.dataset.fee);
-
-  if (group) {
     diagnostic[group] = {
-      score: score,
-      frais: frais,
+      score: Number(card.dataset.score),
+      frais: Number(card.dataset.fee),
       label: card.textContent.trim()
     };
 
     updateResults();
-  }
   });
 });
 
